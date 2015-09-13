@@ -1,8 +1,8 @@
 Package.describe({
   "summary": "Login service for SoundCloud accounts",
-  "name": "garbolino:accounts-soundcloud"
-  "version": "0.1.0",
-  "git": "https://github.com/Garbolino/meteor-accounts-soundcloud",
+  "name": "garbolino:accounts-soundcloud",
+  "version": "0.0.1",
+  "git": "https://github.com/Garbolino/meteor-accounts-soundcloud"
 });
 
 Package.on_use(function(api) {

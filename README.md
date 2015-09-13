@@ -1,7 +1,9 @@
-# Meteor Acccounts Soundcloud
-#### Soundcloud account login for meteor
+## Meteor Acccounts Soundcloud
+=============================
 
-##Install
+Soundcloud account login for meteor
+
+## Install
 
 `cd <your-meteor-project>`
 
@@ -11,7 +13,7 @@ and also add following package as pre-req -
 
 `meteor add service-configuration`
 
-##Setup and Usage
+## Setup and Usage
 1. Register your app with Soundcloud Developer Site at following url- http://soundcloud.com/you/apps/new
 
 2. Fill out the given form but make sure that redirect url as shown as follows-
@@ -46,5 +48,5 @@ and also add following package as pre-req -
       });
 ```
 
-##Credits
+## Credits
   Shamelessly based upon @yubozhao Instagram OAuth2 login service (https://github.com/yubozhao/meteor-accounts-instagram)
