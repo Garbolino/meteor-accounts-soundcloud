@@ -44,6 +44,7 @@ and also add following package as pre-req -
           else
             console.log('login failed ' + err)
       });
+```
 
 ##Credits
   Shamelessly based upon @yubozhao Instagram OAuth2 login service (https://github.com/yubozhao/meteor-accounts-instagram)
