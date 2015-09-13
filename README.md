@@ -1,21 +1,49 @@
-## meteor-accounts-soundcloud
+# Meteor Acccounts Soundcloud
+#### Soundcloud account login for meteor
 
-SoundCloud OAuth2 login service for use with Meteor Auth
+##Install
 
-### Package Dependencies
+`cd <your-meteor-project>`
 
-This login service depends on the bleeding edge changes within the Meteor Auth branch. See [https://github.com/meteor/meteor/wiki/Getting-started-with-Auth](https://github.com/meteor/meteor/wiki/Getting-started-with-Auth) for further details.
+`meteor add garbolino:accounts-soundcloud`
 
-* accounts ([Meteor Docs](http://docs.meteor.com/#accounts_api))
-* accounts-oauth2-helper ([Meteor Docs](http://docs.meteor.com/#meteor_loginwithexternalservice))
-* http
+and also add following package as pre-req -
 
-### Usage
+`meteor add service-configuration`
 
-1. `meteor add accounts-soundcloud`
-2. Read the 'Integrating with Login Services' section of [Getting Started with Auth](http://docs.meteor.com/#accountsui) and make sure you set up your config and secret correctly.
-3. Call `Meteor.loginWithSoundcloud();`
+##Setup and Usage
+1. Register your app with Soundcloud Developer Site at following url- http://soundcloud.com/you/apps/new
 
-### Credits
+2. Fill out the given form but make sure that redirect url as shown as follows-
 
-* Shamelessly based upon [@Jabbslad](https://github.com/Jabbslad/accounts-github) Github OAuth2 login service
+  OAuth redirect_uri:`<your-server-domain>:<port>/_oauth/soundcloud?close`
+
+  For e.g.redirect url for localhost : `http://localhost:3000/_oauth/soundcloud`
+
+3. After registration, note down the clientid and client secret.
+4. Now in your app do create the `accounts.js` (or `accounts.coffee` if you use coffeescript) and put following code inside
+
+ so,it file looks in directory tree- `<your-app-directory>/server/accounts.js`  and put the client id and client secret from previous step
+
+    ```
+    ServiceConfiguration.configurations.remove({
+      service: "soundcloud"
+    });
+    ServiceConfiguration.configurations.insert({
+      service: "soundcloud",
+      clientId: "<your-client-id>",
+      secret: "<your-client-secret>"
+    });
+    ```
+5. Now, all things are setup, you are ready to use this package
+6. Add following button code for login
+```
+      Meteor.loginWithSoundcloud(function (err, res) {
+          if (err !== undefined)
+            console.log('sucess ' + res)
+          else
+            console.log('login failed ' + err)
+      });
+
+##Credits
+  Shamelessly based upon @yubozhao Instagram OAuth2 login service (https://github.com/yubozhao/meteor-accounts-instagram)

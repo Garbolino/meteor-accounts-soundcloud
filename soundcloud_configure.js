@@ -1,6 +1,8 @@
-Template.configureLoginServiceDialogForSoundcloud.siteUrl = function () {
-  return Meteor.absoluteUrl();
-};
+Template.configureLoginServiceDialogForSoundcloud.helpers({
+  siteUrl: function () {
+    return Meteor.absoluteUrl();
+  }
+});
 
 Template.configureLoginServiceDialogForSoundcloud.fields = function () {
   return [
